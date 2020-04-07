@@ -3,56 +3,66 @@ import pyro.distributions as distrs
 
 pyro.set_rng_seed(100)
 
-standart_variation = distrs.Uniform(-0.05, 0.05)  # lower_bound = -0.05, upper_bound = 0.05
+random_noise = distrs.Normal(0.0, 0.05)  # mean = 0.0, sigma = 0.07
 
-class HumanFactorStress:
+class FactorStress:
     def __init__(self, stress: float):
         self.stress = stress
         
     def get_accel(self)->float:
-        accel = 0
+        accel = 0.0
         # depends on sex!
         accel = distrs.Normal(-0.1, 0.05)().item() + self.stress / 5  # mean = self.stress / 5 - 0.1, sigma = 0.05
         
         return accel
     
     def get_decel(self)->float:
-        decel = 0
+        decel = 0.0
         # depends on sex!
         decel = distrs.Normal(0.0, 0.05)().item() + self.stress / 10  # mean = self.stress / 10, sigma = 0.05
         
         return decel
     
     def get_sigma(self)->float:
-        sigma = 0
-        sigma = standart_variation().item() + abs(self.stress - 0.5) / 5
+        sigma = 0.0
+        sigma = random_noise().item() + abs(self.stress - 0.5) / 5
         
         return sigma
     
-    def get_minGap(self)->float:
-        minGap = 0
-        condition = { 0: "Calm", 1: "Agressive" }[distrs.Bernoulli(self.stress)().item()]  # success_prob = 0.6
-        if condition == "Agressive":
-            minGap = distrs.Normal(-0.08, 0.07)().item()  # mean = -0.08, sigma = 0.07
+    def get_speedFactor(self)->float:
+        speedFactor = 0.0
+        if self.stress >= 0.5:
+            speedFactor = distrs.Exponential(2.0)().item() / 2.5 - 0.1   # mean = 0.1, sigma = 0.2
         else:
-            minGap = standart_variation().item()
+            speedFactor = distrs.Normal(-0.05, 0.15)().item()  # mean = -0.05, sigma = 0.15
+        
+        return speedFactor    
+    
+    def get_minGap(self)->float:
+        minGap = 0.0
+        stress_type = { 0: "Calm", 1: "Agressive" }[distrs.Bernoulli(self.stress)().item()]
+        if stress_type == "Agressive":
+            minGap = distrs.Normal(-0.12, 0.07)().item()  # mean = -0.12, sigma = 0.07
+        else:
+            minGap = random_noise().item()
         
         return minGap
     
-    def get_maxSpeed(self)->float:
-        maxSpeed = 0
-        if self.stress >= 0.5:
-            maxSpeed = distrs.Exponential(2.0)().item() / 2.5 - 0.1   # mean = 0.1, sigma = 0.2
+    def get_actionStepLength(self)->float:
+        actionStepLength = 0.0
+        stress_type = { 0: "Calm", 1: "Agressive" }[distrs.Bernoulli(0.6)().item()]
+        if stress_type == "Agressive":
+            actionStepLength = distrs.Uniform(-0.2, 0.05)().item()  # lower_bound = -0.2, upper_bound = 0.05
         else:
-            maxSpeed = distrs.Normal(-0.05, 0.07)().item()  # mean = -0.05, sigma = 0.07
+            actionStepLength = random_noise().item()
+
+        return actionStepLength
         
-        return maxSpeed
-    
     def get_jmCrossingGap(self)->float:
-        jmCrossingGap = 0
+        jmCrossingGap = 0.0
         if self.stress >= 0.75:
             jmCrossingGap = distrs.Normal(-0.1, 0.04)().item()  # mean = -0.1, sigma = 0.04
         else:
-            jmCrossingGap = standart_variation().item() 
+            jmCrossingGap = random_noise().item() 
         
         return jmCrossingGap
