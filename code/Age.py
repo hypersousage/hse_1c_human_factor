@@ -72,8 +72,8 @@ class FactorAge:
         elif 30 <= self.age < 60:
             minGap = distrs.Uniform(-0.2, 0.2)().item()  # lower_bound = -0.2, upper_bound = 0.2
         else:
-            condition = { 0: "Slow", 1: "Fast"}[distrs.Bernoulli(0.4)().item()]  # success_prob = 0.4
-            if condition == "Slow":
+            condition = { 0: "Normal", 1: "Fast"}[distrs.Bernoulli(0.4)().item()]  # success_prob = 0.4
+            if condition == "Normal":
                 minGap = distrs.Uniform(-0.05, 0.15)().item()  # lower_bound = -0.05, upper_bound = 0.15
             else:
                 minGap = distrs.Normal(-0.12, 0.05)().item()  # mean = -0.12, sigma = 0.05
