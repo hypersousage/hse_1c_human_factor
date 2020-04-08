@@ -21,9 +21,9 @@ class FactorAge:
         elif 45 <= self.age < 65:
             accel = random_noise().item()
         else:
-            condition = { 0: "Slow", 1: "Fast" }[distrs.Bernoulli(0.3)().item()]  # success_prob = 0.3
-            if condition == "Slow":
-                accel = distrs.Normal(0.0, 0.2)().item()  # mean = 0, sigma = 0.2
+            condition = { 0: "Normal", 1: "Fast" }[distrs.Bernoulli(0.3)().item()]  # success_prob = 0.3
+            if condition == "Normal":
+                accel = random_noise().item()
             else:
                 accel = distrs.Uniform(0.15, 0.35)().item()  # lower_bound = 0.15, upper_bound = 0.35
         
