@@ -45,7 +45,7 @@ class FactorAge:
         elif 45 <= self.age < 55:
             sigma = distrs.Normal(0.1, 0.15)().item()  # mean = 0.1, sigma = 0.15
         else:
-            sigma = distrs.Chi2(2)().item() / 10 - 0.05  # k = 2 -> mean = 0.05, sigma = 0.2
+            sigma = distrs.Chi2(2)().item() / 10  # k = 2 -> mean = 0.1, sigma = 0.2
     
         return sigma
         
