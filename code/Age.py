@@ -13,7 +13,7 @@ class FactorAge:
         # depends on sex in some cases
         accel = 0.0
         if 17 <= self.age < 21:
-            accel = distrs.Laplace(0.22, 0.12)().item()  # mean = 0.22, sigma = 0.12
+            accel = distrs.Laplace(0.22, 0.15)().item()  # mean = 0.22, sigma = 0.15
         elif 21 <= self.age < 26:
             accel = distrs.Normal(0.15, 0.15)().item()  # mean = 0.15, sigma = 0.15
         elif 26 <= self.age < 45:
