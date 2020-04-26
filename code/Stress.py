@@ -3,7 +3,7 @@ import pyro.distributions as distrs
 
 pyro.set_rng_seed(100)
 
-random_noise = distrs.Normal(0.0, 0.05)  # mean = 0.0, sigma = 0.07
+random_noise = distrs.Normal(0.0, 0.05)  # mean = 0.0, sigma = 0.05
 
 class FactorStress:
     def __init__(self, stress: float):
