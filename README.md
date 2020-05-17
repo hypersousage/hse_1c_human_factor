@@ -10,3 +10,9 @@ Implementation of the human factor affecting the behavior of the machine in traf
 * **Sabina Dayanova** - *Researcher* - [sabinadayanova](https://github.com/sabinadayanova)
 * **Maria Shkolnik** - *Researcher* - [mashaashkolnik](https://github.com/mashaashkolnik)
 * **Nikita Starichkov** - *Mentor* - [demist](https://github.com/demist)
+
+## Run
+
+1. Download SUMO
+2. Clone this rep
+3. ```python3 runner.py```
