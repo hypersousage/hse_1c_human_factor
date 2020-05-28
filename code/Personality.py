@@ -8,13 +8,13 @@ random_noise = distrs.Normal(0.0, 0.05)  # mean = 0.0, sigma = 0.05
 def exp(lam : float)->float:
     return distrs.Exponential(lam)().item()
 
-def norm(mean: float, sigma: float):
+def norm(mean: float, sigma: float)->float:
     return distrs.Normal(mean, sigma)().item()
 
-def lap(mean: float, sigma: float):
+def lap(mean: float, sigma: float)->float:
     return distrs.Laplace(mean, sigma)().item()
 
-def uni(a:float, b: float):
+def uni(a:float, b: float)->float:
     return distrs.Uniform(a, b)().item()
 
 class PersonalityFactor:
