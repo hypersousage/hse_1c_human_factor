@@ -8,7 +8,6 @@ from constants import default_vals, coeffs, config
 
 pyro.set_rng_seed(100)
 
-# dict[<factor name>] = factor value
 generators = {
     'age': FactorAge,
     'stress': FactorStress
