@@ -109,39 +109,6 @@ class FactorStress:
             return -impatience
         else:
             return impatience
-
-
-
-
-    # Pending solution
-    def get_jmIgnoreKeepClearTime(self)->float:
-        # default = -1.0
-        return -1.0
-    
-    def get_jmDriveAfterRedTime(self)->float:
-        # default = -1.0
-        return -1.0
-    
-    def get_jmDriveAfterYellowTime(self)->float:
-        # default = -1.0
-        return -1.0
-    
-    # not in vType
-    def get_jmTimegapMinor(self)->float:
-        pass
-    
-    def get_jmSigmaMinor(self)->float:
-        pass
-    
-    # Probably,will be dropped later
-    def get_laneChangeModel(self)->str:
-        pass
-
-    def get_latAlignment(self)->str:
-        pass
-
-    def get_carFollowingModel(self)->str:
-        pass
     
     # Dropped, but may be useful later
     def get_speedFactor(self)->float:
