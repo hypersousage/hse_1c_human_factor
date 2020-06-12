@@ -140,40 +140,7 @@ class FactorAge:
         else:
             impatience = distrs.Normal(0.1, 0.1)().item()  # mean = 0.1, sigma = 0.1
         
-        return impatience
-
-
-
-
-    # Pending solution
-    def get_jmIgnoreKeepClearTime(self)->float:
-        # default = -1.0
-        return -1.0
-    
-    def get_jmDriveAfterRedTime(self)->float:
-        # default = -1.0
-        return -1.0
-    
-    def get_jmDriveAfterYellowTime(self)->float:
-        # default = -1.0
-        return -1.0
-    
-    # not in vType
-    def get_jmTimegapMinor(self)->float:
-        pass
-    
-    def get_jmSigmaMinor(self)->self:
-        pass
-    
-    # Probably,will be dropped later
-    def get_laneChangeModel(self)->str:
-        pass
-
-    def get_latAlignment(self)->str:
-        pass
-
-    def get_carFollowingModel(self)->str:
-        pass
+        return impatience    
     
     # Dropped, but may be usefull
     def get_speedFactor(self)->float:
