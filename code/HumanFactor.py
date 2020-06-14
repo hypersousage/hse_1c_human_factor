@@ -11,6 +11,7 @@ from Children import FactorChildren
 from Personality import FactorPersonality
 from Phone import FactorPhone
 from Education import FactorEducation
+from Sex import FactorSex
 
 from constants import default_vals, coeffs, config
 # ... other factor classes
@@ -23,7 +24,8 @@ generators = {
     'children': FactorChildren,
     'personality': FactorPersonality,
     'phone': FactorPhone,
-    'education': FactorEducation
+    'education': FactorEducation,
+    'sex': FactorSex
 }
 
 # Default SUMO values:
