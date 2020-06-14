@@ -36,12 +36,8 @@ default_minGapLat = 0.6
 default_maxSpeedLat = 1.0
 default_actionStepLength = 0.0
 default_jmCrossingGap = 10.0
-default_jmIgnoreKeepClearTime = -1.0
-default_jmDriveAfterRedTime = -1.0
-default_jmDriveAfterYellowTime = -1.0
 default_jmIgnoreFoeProb = 0.0
 default_jmIgnoreFoeSpeed = 0.0
-default_jmTimegapMinor = 1.0
 default_impatience = 0.0
 
 class HumanFactor:
