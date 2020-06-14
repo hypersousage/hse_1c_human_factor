@@ -19,17 +19,17 @@ Implementation of the human factor affecting the behavior of the machine in traf
 4. Move "vtype_gen.py" and "factors.json" from "/hse-1c_human-factor/code" to the "/tools" directory
 5. Replace "randomTrips.py" from "/tools" with "randomTrips.py" from "/code"
 6. Set your desired values in "factors.json":
-    - Age: from 17 to 100
+    - Age: integer from 17 to 100
     - Sex: 0 for men, 1 for women
-    - Stress: float (0-1)
+    - Stress: float from 0 to 1
     - Children: bool (1 for yes)
     - Personality: phlegmatic, holeric, sanguine, melancholic
     - Phone: bool (1 for yes)
     - Higher Education: bool (1 for yes)
-    - Driving under influence: float (0-1)
+    - Driving under influence of alcohol: float from 0 to 1
     - Social Deviance: degree (0-weak impact, 1- average impact, 2-strong impact)
     - Foreigner: bool (1 for yes)
-7. Run the simulation (run the command "python3 osmWebWizard.py"):
+7. Run the simulation, using the command `python3 osmWebWizard.py`:
     - Choose the area of the map that you want
     - Click the "Generate scenario" button
     - In the new window set the "delay" value on 100 and click on the green triangle button (play)
