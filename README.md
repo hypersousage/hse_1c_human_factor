@@ -33,3 +33,4 @@ Implementation of the human factor affecting the behavior of the machine in traf
 - Choose the area of the map that you want
 - Click the "Generate scenario" button
 - In the new window set the "delay" value on 100 and click on the green triangle button (play)
+- After the start you can change the quantity of cars by changing the "scale traffic".
