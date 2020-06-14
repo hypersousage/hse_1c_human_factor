@@ -17,7 +17,7 @@ def lap(mean: float, sigma: float)->float:
 def uni(a:float, b: float)->float:
     return distrs.Uniform(a, b)().item()
 
-class PersonalityFactor:
+class FactorPersonality:
     def __init__(self, personality: str):
         self.personality = personality
 
