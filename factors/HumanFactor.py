@@ -5,16 +5,16 @@ import logging
 format = '%(asctime)s - %(levelname)s - %(message)s'
 logging.basicConfig(filename='logs.log', level=logging.DEBUG, filemode='a', format=format)
 
-from Age import FactorAge
-from Stress import FactorStress
-from Children import FactorChildren
-from Personality import FactorPersonality
-from Phone import FactorPhone
-from Education import FactorEducation
-from Sex import FactorSex
-from Alcohol import FactorAlcohol
+from hse_1c_human_factor.factors.Age import FactorAge
+from hse_1c_human_factor.factors.Stress import FactorStress
+from hse_1c_human_factor.factors.Children import FactorChildren
+from hse_1c_human_factor.factors.Personality import FactorPersonality
+from hse_1c_human_factor.factors.Phone import FactorPhone
+from hse_1c_human_factor.factors.Education import FactorEducation
+from hse_1c_human_factor.factors.Sex import FactorSex
+from hse_1c_human_factor.factors.Alcohol import FactorAlcohol
 
-from constants import default_vals, coeffs, config
+from hse_1c_human_factor.factors.constants import default_vals, coeffs, config
 # ... other factor classes
 
 pyro.set_rng_seed(100)
