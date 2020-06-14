@@ -12,6 +12,7 @@ from Personality import FactorPersonality
 from Phone import FactorPhone
 from Education import FactorEducation
 from Sex import FactorSex
+from Alcohol import FactorAlcohol
 
 from constants import default_vals, coeffs, config
 # ... other factor classes
