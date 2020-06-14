@@ -80,42 +80,21 @@ class FactorStress:
     
     def get_maxSpeedLat(self)->float:
         maxSpeedLat = 0.0
-        maxSpeedLat = distrs.Norma(0.0, self.stress / 2)().item()  # mean = 0.0m sigma = strss / 2
+        maxSpeedLat = random_noise().item()
         
         return maxSpeedLat
 
     def get_jmIgnoreFoeProb(self)->float:
         jmIgnoreFoeProb = 0.0
-        if self.stress < 0.3:
-            jmIgnoreFoeProb = distrs.Normal(0.0, 0.2)().item()  # mean = 0.0, sigma = 0.2
-        elif 0.3 <= self.stress < 0.7:
-            jmIgnoreFoeProb = distrs.Normal(0.1, 0.03)().item()  # mean = 0.1, sigma = 0.03
-        else:
-            jmIgnoreFoeProb = distrs.Normal(0.12, 0.05)().item()  # mean = 0.12, sigma = 0.05
+        jmIgnoreFoeProb = random_noise().item()
         
         return jmIgnoreFoeProb
     
     def get_jmIgnoreFoeSpeed(self)->float:
-        jmIgnoreFoeSpeed = 0.0
-        jmIgnoreFoeSpeed = distrs.Normal(0.0, self.stress / 5)().item()  # mean = 0.0, sigma = stress / 5
+        raise NotImplementedError
         
-        return jmIgnoreFoeSpeed
-    
     def get_impatience(self)->float:
         impatience = 0.0
-        condition = { 0: "Calm", 1: "Agressive"}[distrs.Bernoulli(0.5)().item()]
         impatience = distrs.Normal(self.stress / 6, 0.1)().item()  # mean = stress / 6, sigma = 0.1
-        if condition == "Calm":
-            return -impatience
-        else:
-            return impatience
-    
-    # Dropped, but may be useful later
-    def get_speedFactor(self)->float:
-        speedFactor = 0.0
-        if self.stress >= 0.5:
-            speedFactor = distrs.Exponential(2.0)().item() / 2.5 - 0.1   # mean = 0.1, sigma = 0.2
-        else:
-            speedFactor = distrs.Normal(-0.05, 0.2)().item()  # mean = -0.05, sigma = 0.2
         
-        return speedFactor      
+        return impatience
