@@ -28,5 +28,5 @@ Implementation of the human factor affecting the behavior of the machine in traf
 - Higher Education: bool (1 for yes)
 - Driving under influence: float (0-1)
 - Social Deviance: degree (0-weak impact, 1- average impact, 2-strong impact)
-- 
+- Foreigner: bool (1 for yes)
 7. Run the simulation (run the command "python3 osmWebWizard.py")
