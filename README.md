@@ -11,7 +11,7 @@ Implementation of the human factor affecting the behavior of the machine in traf
 * **Maria Shkolnik** - *Researcher* - [mashaashkolnik](https://github.com/mashaashkolnik)
 * **Nikita Starichkov** - *Mentor* - [demist](https://github.com/demist)
 
-## Inctruction
+## Run simulation
 
 1. Install Pyro and Python (version grater than or equal to 3.6) 
 2. Download SUMO [click here!](https://sumo.dlr.de/docs/Installing.html) (linux preferably)
