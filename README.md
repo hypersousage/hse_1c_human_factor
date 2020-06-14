@@ -30,7 +30,7 @@ Implementation of the human factor affecting the behavior of the machine in traf
     - Social Deviance: degree (0-weak impact, 1- average impact, 2-strong impact)
     - Foreigner: bool (1 for yes)
 7. Run the simulation, using the command `python3 osmWebWizard.py`:
-    - Choose the area of the map that you want
-    - Click the "Generate scenario" button
-    - In the new window set the "delay" value on 100 and click on the green triangle button (play)
-    - After the start you can change the quantity of cars by changing the "scale traffic".
+    1. Choose the area of the map that you want
+    2. Click the "Generate scenario" button
+    3. In the new window set the "delay" value on 100 and click on the green triangle button (play)
+    4. After the start you can change the quantity of cars by changing the "scale traffic".
