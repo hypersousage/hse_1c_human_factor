@@ -11,8 +11,22 @@ Implementation of the human factor affecting the behavior of the machine in traf
 * **Maria Shkolnik** - *Researcher* - [mashaashkolnik](https://github.com/mashaashkolnik)
 * **Nikita Starichkov** - *Mentor* - [demist](https://github.com/demist)
 
-## Run
+## Inctruction
 
-1. Download SUMO
-2. Clone this rep
-3. ```python3 runner.py```
+1. Install Pyro and Python (version grater than or equal to 3.6) 
+2. Download SUMO [click here!](https://sumo.dlr.de/docs/Installing.html) (linux preferably)
+3. Download all of the "Factor" files into one directory "/sumo/tools" without any subdirectories (the easiest way to do this is to click the "Clone or Download" button)
+4. Move "vtype_gen.py" and "factors.json" from "/hse-1c_human-factor/code" to the "/tools" directory
+5. Replace "randomTrips.py" from "/tools" with "randomTrips.py" from "/code"
+6. Set your desired values in "factors.json":
+- Age: from 17 to 100
+- Sex: 0 for men, 1 for women
+- Stress: float (0-1)
+- Children: bool (1 for yes)
+- Personality: phlegmatic, holeric, sanguine, melancholic
+- Phone: bool (1 for yes)
+- Higher Education: bool (1 for yes)
+- Driving under influence: float (0-1)
+- Social Deviance: degree (0-weak impact, 1- average impact, 2-strong impact)
+- 
+7. Run the simulation (run the command "python3 osmWebWizard.py")
