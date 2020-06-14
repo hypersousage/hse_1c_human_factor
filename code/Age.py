@@ -84,7 +84,7 @@ class FactorAge:
     def get_collisionMinGapFactor(self)->float:
         collisionMinGapFactor = 0.0
         if self.age < 33:
-            collisionMinGapFactor = distrs.Uniform(0.0, 1.0)().item()  # lower_bound = 0.0, upper_bound = 1.0
+            collisionMinGapFactor = distrs.Uniform(0.3, 0.7)().item()  # lower_bound = 0.3, upper_bound = 0.7
         elif 33 <= self.age < 55:
             collisionMinGapFactor = distrs.Normal(0.5, 0.1)().item()  # mean = 0.5, sigma = 0.1
         else:
@@ -117,41 +117,24 @@ class FactorAge:
     def get_jmIgnoreFoeProb(self)->float:
         jmIgnoreFoeProb = 0.0
         if self.age < 23:
-            jmIgnoreFoeProb = distrs.Uniform(0.1, 0.6)().item()  # lower_bound = 0.1, upper_bound = 0.6
+            jmIgnoreFoeProb = distrs.Uniform(-0.3, 0.3)().item()  # lower_bound = -0.5, upper_bound = 0.5
         elif 23 <= self.age < 40:
-            jmIgnoreFoeProb = distrs.Laplace(0.2, 0.05)().item()  # mean = 0.2, sigma = 0.05
+            jmIgnoreFoeProb = distrs.Laplace(0.12, 0.12)().item()  # mean = 0.1, sigma = 0.1
         else:
-            jmIgnoreFoeProb = distrs.Normal(0.11, 0.03)().item()  # mean = 0.11, sigma = 0.03
-        
+            jmIgnoreFoeProb = distrs.Normal(0.1, 0.06)().item()  # mean = 0.11, sigma = 0.03
+
         return jmIgnoreFoeProb
     
     def get_jmIgnoreFoeSpeed(self)->float:
-        jmIgnoreFoeSpeed = 0.0
-        jmIgnoreFoeSpeed = random_noise().item() + 0.2
-        
-        return jmIgnoreFoeSpeed
+        raise NotImplementedError
     
     def get_impatience(self)->float:
         impatience = 0.0
         if self.age < 22:
             impatience = distrs.Normal(0.3, 0.05)().item()  # mean = 0.3, sigma = 0.05
-        elif 22 <= self.age <= 40:
+        elif 22 <= self.age < 40:
             impatience = distrs.Exponential(4)().item()  # mean = 0.25, sigma = 0.0625
         else:
             impatience = distrs.Normal(0.1, 0.1)().item()  # mean = 0.1, sigma = 0.1
         
-        return impatience    
-    
-    # Dropped, but may be usefull
-    def get_speedFactor(self)->float:
-        speedFactor = 0.0
-        if 17 <= self.age < 21:
-            speedFactor = distrs.Laplace(0.2, 0.25)().item()  # mean = 0.2, sigma = 0.25
-        elif 21 <= self.age < 65:
-            speedFactor = distrs.Normal(0.0, 0.5)().item()  # mean = 0, sigma = 0.5
-        else:
-            condition = { 0: "Normal", 1: "Fast" }[distrs.Bernoulli(0.3)().item()]  # success_prob = 0.3
-            if condition == "Normal":
-                speedFactor = distrs.Normal(0.0, 0.2)().item()  # mean = 0, sigma = 0.2
-            else:
-                speedFactor = distrs.Uniform(0.25, 0.35)().item()  # lower_bound = 0.25, upper_bound = 0.35
+        return impatience
