@@ -1,7 +1,9 @@
+import pyro
 import pyro.distributions as distrs
 
+pyro.set_rng_seed(100)
 
-class FactorHigherEducation:
+class FactorEducation:
     def __init__(self, is_higher: bool):
         self.is_higher = is_higher
 
@@ -33,14 +35,3 @@ class FactorHigherEducation:
 
     def get_jmSigmaMinor(self):
         raise NotImplementedError
-
-
-factor = FactorHigherEducation(1)
-
-print([func for func in dir(FactorHigherEducation) if callable(getattr(FactorHigherEducation, func))])
-print(factor.__dict__)
-
-for name, callable in factor.__dict__.items():
-    print(name)
-
-
