@@ -1,4 +1,4 @@
-import HumanFactor
+from factors import HumanFactor
 import json
 
 param_to_getter = {
