@@ -3,5 +3,8 @@
     "stress": 0.5,
     "children": 0,
     "personality": "phlegmatic",
-    "phone": 1
+    "phone": 0,
+    "education": 1,
+    "sex": 1,
+    "alcohol": 0.0
 }
