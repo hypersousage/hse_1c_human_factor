@@ -22,7 +22,8 @@ generators = {
     'stress': FactorStress,
     'children': FactorChildren,
     'personality': FactorPersonality,
-    'phone': FactorPhone
+    'phone': FactorPhone,
+    'education': FactorEducation
 }
 
 # Default SUMO values:
