@@ -15,10 +15,10 @@ Implementation of the human factor affecting the behavior of the machine in traf
 
 1. Install Pyro and Python (version grater than or equal to 3.6) 
 2. Download SUMO [click here!](https://sumo.dlr.de/docs/Installing.html) (linux preferably)
-3. Download all of the "Factor" files into one directory "/sumo/tools" without any subdirectories (the easiest way to do this is to click the "Clone or Download" button)
-4. Move "vtype_gen.py" and "factors.json" from "/hse-1c_human-factor/code" to the "/tools" directory
-5. Replace "randomTrips.py" from "/tools" with "randomTrips.py" from "/code"
-6. Set your desired values in "factors.json":
+3. Clone this rep to `/sumo/tools`
+4. Move `vtype_gen.py` and `factors.json` from `/hse-1c_human-factor/code` to the `sumo/tools` directory
+5. Replace `randomTrips.py` from `/sumo/tools` with `randomTrips.py` from `hse-1c_human-factor/code`
+6. Set your desired values in `factors.json`:
     - Age: integer from 17 to 100
     - Sex: 0 for men, 1 for women
     - Stress: float from 0 to 1
