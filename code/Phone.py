@@ -1,7 +1,9 @@
+import pyro
 import pyro.distributions as distrs
 
+pyro.set_rng_seed(100)
 
-class FactorUsingPhoneWhileDriving:
+class FactorPhone:
     def __init__(self, is_using: bool):
         self.is_using = is_using
 
@@ -49,13 +51,4 @@ class FactorUsingPhoneWhileDriving:
         if self.is_using:
             return min(1.4, max(1, distrs.Normal(1.1, 0.1)().item()))- 1
         return 0
-
-
-factor = FactorUsingPhoneWhileDriving(1)
-
-print(factor.__dict__)
-
-for name, callable in factor.__dict__.items():
-    print(name)
-
 
