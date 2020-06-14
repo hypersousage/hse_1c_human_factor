@@ -14,7 +14,7 @@ def norm(mean: float, sigma: float)->float:
 def uni(a:float, b: float)->float:
     return distrs.Uniform(a, b)().item()
 
-class ChildrenFactor:
+class FactorChildren:
     def __init__(self, has_children: bool):
         self.has_children = has_children
 
