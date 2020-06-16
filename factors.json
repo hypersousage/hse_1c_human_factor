@@ -1,10 +1,10 @@
 {
-    "age": 34,
-    "stress": 0.5,
-    "children": 0,
-    "personality": "phlegmatic",
-    "phone": 0,
-    "education": 1,
-    "sex": 1,
-    "alcohol": 0.0
+    "age": [18, 23, 34, 75],
+    "stress": [0.1, 0.5, 0.9],
+    "children": [0, 1],
+    "personality": ["phlegmatic"],
+    "phone": [0, 1],
+    "education": [0, 1],
+    "sex": [0, 1],
+    "alcohol": [0.0, 0.3]
 }
