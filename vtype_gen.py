@@ -1,4 +1,4 @@
-from factors import HumanFactor
+from hse_1c_human_factor.factors import HumanFactor
 import json
 
 param_to_getter = {
@@ -28,10 +28,61 @@ abs_val_methods = {
 
 cur_file = "factors.json"
 
-def gen_lines_common(n_lines: int)->str:
+def gen_lines_one_group(n_lines: int, factors: str)->str:
+    if factors:
+        data = json.loads(factors)
+    else:
+        file = open(cur_file, "r")
+        data = json.load(file)
+        file.close()
+    
+    generator = HumanFactor.HumanFactor(data)
+
+    out_str = ''
+    for i in range(n_lines):
+        params = {}
+        for pname, method_name in param_to_getter.items():
+            method = getattr(generator, method_name)
+            if (method_name in abs_val_methods):
+                params[pname] = method(True)
+            else:
+                params[pname] =  method()
+        
+        cur_str = f'    <vType id="car{i}" vClass="passenger"'
+        for pname, value in params.items():
+            cur_str += f' {pname}="{value}"'
+        cur_str += '/>\n'
+        out_str += cur_str
+
+    return out_str
+
+def gen_lines_from_json(n_lines: int)->str:
     file = open(cur_file, "r")
     data = json.load(file)
     file.close()
+    
+    generator = HumanFactor.HumanFactor(data)
+
+    out_str = ''
+    for i in range(n_lines):
+        params = {}
+        for pname, method_name in param_to_getter.items():
+            method = getattr(generator, method_name)
+            if (method_name in abs_val_methods):
+                params[pname] = method(True)
+            else:
+                params[pname] =  method()
+        
+        cur_str = f'    <vType id="car{i}" vClass="passenger"'
+        for pname, value in params.items():
+            cur_str += f' {pname}="{value}"'
+        cur_str += '/>\n'
+        out_str += cur_str
+
+    return out_str
+
+def gen_lines_from_gui(n_lines: int, factors: str)->str:
+    data = json.loads(factors)
     
     generator = HumanFactor.HumanFactor(data)
 

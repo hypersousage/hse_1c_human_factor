@@ -47,19 +47,25 @@ default_impatience = 0.0
 class HumanFactor:
     def __init__(self, factors: dict):
         for fname, value in factors.items():
-            generator = generators[fname](value)
-            setattr(self, f'generator_{fname}', generator)
+            if fname in generators.keys():
+                generator = generators[fname](value)
+                setattr(self, f'generator_{fname}', generator)
+            else:
+                logging.error(f'Can\'t init generator_{fname}')
 
     # @brief
     # The acceleration ability of vehicles of this type
     def generate_param(self, pname):
         value = 0.0
-        for fname, generator in self.__dict__.items():
+        n_factors = 0
+        for gen_name, generator in self.__dict__.items():
+            fname = gen_name.split('_')[1]
             try:
                 value += getattr(generator, f'get_{pname}')() * coeffs.get(pname, {}).get(fname, 1)
+                n_factors += 1
             except (AttributeError, NotImplementedError):
-                logging.warning(f'Warning: {fname} has no get_{pname} method')
-        denominator = coeffs.get(pname, {}).get('denominator', 1)
+                logging.warning(f'Warning: {gen_name} has no get_{pname} method')
+        denominator = coeffs.get(pname, {}).get('denominator', n_factors)
 
         return value / denominator
 
