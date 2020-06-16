@@ -13,9 +13,10 @@ from hse_1c_human_factor.factors.Phone import FactorPhone
 from hse_1c_human_factor.factors.Education import FactorEducation
 from hse_1c_human_factor.factors.Sex import FactorSex
 from hse_1c_human_factor.factors.Alcohol import FactorAlcohol
+# ... other factor classes
 
 from hse_1c_human_factor.factors.constants import default_vals, coeffs, config
-# ... other factor classes
+
 
 pyro.set_rng_seed(100)
 
@@ -54,12 +55,14 @@ class HumanFactor:
     # The acceleration ability of vehicles of this type
     def generate_param(self, pname):
         value = 0.0
+        denominator = 0.0
         for fname, generator in self.__dict__.items():
             try:
                 value += getattr(generator, f'get_{pname}')() * coeffs.get(pname, {}).get(fname, 1)
+                denominator += 1.0
             except (AttributeError, NotImplementedError):
                 logging.warning(f'Warning: {fname} has no get_{pname} method')
-        denominator = coeffs.get(pname, {}).get('denominator', 1)
+        # denominator = coeffs.get(pname, {}).get('denominator', 1)
 
         return value / denominator
 
