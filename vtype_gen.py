@@ -1,4 +1,5 @@
-from factors import HumanFactor
+from hse_1c_human_factor.factors import HumanFactor
+from random import choice
 import json
 
 param_to_getter = {
@@ -33,10 +34,14 @@ def gen_lines_common(n_lines: int)->str:
     data = json.load(file)
     file.close()
     
-    generator = HumanFactor.HumanFactor(data)
-
     out_str = ''
     for i in range(n_lines):
+        cur_factors = dict()
+        for fname, values in data.items():
+            if len(values) != 0:
+                cur_factors[fname] = choice(values)
+        
+        generator = HumanFactor.HumanFactor(cur_factors)
         params = {}
         for pname, method_name in param_to_getter.items():
             method = getattr(generator, method_name)
