@@ -17,9 +17,9 @@ Implementation of the human factor affecting the behavior of the machine in traf
 2. Download SUMO [click here!](https://sumo.dlr.de/docs/Installing.html) (linux preferably)
 3. Clone this rep to `/sumo/tools`
 4. Move `vtype_gen.py` and `factors.json` from `/hse-1c_human-factor` to the `/sumo/tools` directory
-5.1 Replace `randomTrips.py` from `/sumo/tools` with `randomTrips.py` from `/hse-1c_human-factor`
-5.2 Replace `webWizard/` from `/sumo/tools` with `webWizard/` from `/hse-1c_human-factor`
-5.3 Replace `osmWebWizard.py` from `/sumo/tools` with `osmWebWizard.py` from `/hse-1c_human-factor`
+5. 1. Replace `randomTrips.py` from `/sumo/tools` with `randomTrips.py` from `/hse-1c_human-factor`
+5. 2. Replace `webWizard/` from `/sumo/tools` with `webWizard/` from `/hse-1c_human-factor`
+5. 3. Replace `osmWebWizard.py` from `/sumo/tools` with `osmWebWizard.py` from `/hse-1c_human-factor`
 6. Set your desired values in `factors.json`:
     - Age: integer from 17 to 100
     - Sex: 0 for men, 1 for women
