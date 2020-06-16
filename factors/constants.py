@@ -24,12 +24,11 @@ default_vals = {
 coeffs = {
     'accel': {
         'age': 1,
-        'stress': 1.2,
-        'denominator': 1
+        'stress': 1
     },
     'collisionMinGapFactor': {
-        'stress': 0.3,
-        'age': 0.7
+        'stress': 1,
+        'age': 1
     }
 }
 
