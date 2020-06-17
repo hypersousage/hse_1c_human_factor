@@ -55,7 +55,7 @@ on("ready", function(){
                 options.append(label);
 
                 label = elem("<label>", {textContent: "Personality", title: ""});
-                this.personality = elem("<input>", {type: "text", value: "0"});
+                this.personality = elem("<input>", {type: "text", value: "phlegmatic"});
                 label.append(this.personality);
                 options.append(label);
 
@@ -107,7 +107,7 @@ on("ready", function(){
                         age: parseString2Array(this.age.value),
                         stress: parseString2Array(this.stress.value),
                         children: parseString2Array(this.children.value),
-                        personality: parseString2Array(this.personality.value),
+                        personality: this.personality.value.split(","),
                         phone: parseString2Array(this.phone.value),
                         education: parseString2Array(this.education.value),
                         sex: parseString2Array(this.sex.value),
