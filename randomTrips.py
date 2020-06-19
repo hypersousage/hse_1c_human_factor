@@ -29,7 +29,7 @@ from collections import defaultdict
 import math
 import optparse
 
-from vtype_gen import gen_lines_common
+from vtype_gen import gen_lines_common, gen_lines_multiple_group
 
 if 'SUMO_HOME' in os.environ:
     sys.path.append(os.path.join(os.environ['SUMO_HOME'], 'tools'))
@@ -46,6 +46,7 @@ VIA_SUFFIX = ".via.xml"
 
 def get_options(args=None):
     optParser = optparse.OptionParser()
+    optParser.add_option("-f", type="string")
     optParser.add_option("-n", "--net-file", dest="netfile",
                          help="define the net file (mandatory)")
     optParser.add_option("-a", "--additional-files", dest="additional",
@@ -510,7 +511,8 @@ def main(options):
         return idx + 1
 
     lines_to_gen = int(options.end / options.period) + 1
-    vehicles = gen_lines_common(lines_to_gen)
+    factors = options.f # None if factors haven't been passed
+    vehicles = gen_lines_multiple_group(lines_to_gen, factors)
 
     with open(options.tripfile, 'w') as fouttrips:
         sumolib.writeXMLHeader(fouttrips, "$Id$", "routes")  # noqa
