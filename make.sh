@@ -1,9 +1,9 @@
 #!/bin/bash
 
-cp vtype_gen.py ../
-cp osmWebWizard.py ../
-cp -r webWizard ../
-cp randomTrips.py ../
+cp -f vtype_gen.py ../
+cp -f osmWebWizard.py ../
+cp -f -r webWizard ../
+cp -f randomTrips.py ../
 
 cd ..
 

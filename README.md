@@ -16,11 +16,9 @@ Implementation of the human factor affecting the behavior of the machine in traf
 1. Install Pyro and Python (version grater than or equal to 3.6) 
 2. Download SUMO [click here!](https://sumo.dlr.de/docs/Installing.html) (linux preferably)
 3. Clone this rep to `/sumo/tools`
-4. Move `vtype_gen.py` and `factors.json` from `/hse-1c_human-factor` to the `/sumo/tools` directory
-5. Replace `randomTrips.py` from `/sumo/tools` with `randomTrips.py` from `/hse-1c_human-factor`
-6. Replace `webWizard/` from `/sumo/tools` with `webWizard/` from `/hse-1c_human-factor`
-7. Replace `osmWebWizard.py` from `/sumo/tools` with `osmWebWizard.py` from `/hse-1c_human-factor`
-8. Set your desired values in `factors.json`:
+4. Run this `chmod ugo+x make.sh` in `/hse_1c_human_factor`
+5. Run `./make.sh` for run only 1 simulation and `./make.sh 2` for run 2 simulations in one time(run in `/hse_1c_human_factor`)
+6. Set your desired values in web:
     - Age: integer from 17 to 100
     - Sex: 0 for men, 1 for women
     - Stress: float from 0 to 1
@@ -31,7 +29,7 @@ Implementation of the human factor affecting the behavior of the machine in traf
     - Driving under influence of alcohol: float from 0 to 1
     - Social Deviance: degree (0-weak impact, 1- average impact, 2-strong impact)
     - Foreigner: bool (1 for yes)
-9. Run the simulation, using the command `python3 osmWebWizard.py`:
+7. Edit another things:
     1. Choose the area of the map that you want
     2. Click the "Generate scenario" button
     3. In the new window set the "delay" value on 100 and click on the green triangle button (play)
