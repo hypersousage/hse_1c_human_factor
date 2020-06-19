@@ -6,4 +6,8 @@ cp -r webWizard ../
 cp randomTrips.py ../
 
 cd ..
-python3 osmWebWizard.py
+number=$RANDOM%10
+default_port=8080
+port=$(($default_port+$number))
+echo port $port
+python3 osmWebWizard.py --port $port
