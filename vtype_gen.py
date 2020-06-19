@@ -29,7 +29,7 @@ abs_val_methods = {
 
 cur_file = "factors.json"
 
-def gen_lines_one_group(n_lines: int, factors: str)->str:
+def gen_lines_multiple_group(n_lines: int, factors: str)->str:
     if factors:
         data = json.loads(factors)
     else:
