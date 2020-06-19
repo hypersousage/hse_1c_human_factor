@@ -512,11 +512,13 @@ def main(options):
 
     lines_to_gen = int(options.end / options.period) + 1
     factors = options.f # None if factors haven't been passed
-    vehicles = gen_lines_multiple_group(lines_to_gen, factors)
+    if factors:
+        vehicles = gen_lines_multiple_group(lines_to_gen, factors)
 
     with open(options.tripfile, 'w') as fouttrips:
         sumolib.writeXMLHeader(fouttrips, "$Id$", "routes")  # noqa
-        fouttrips.write(vehicles)
+        if factors:
+            fouttrips.write(vehicles)
         if options.vehicle_class:
             fouttrips.write('    <vType id="%s" vClass="%s"%s/>\n' %
                             (options.vtypeID, options.vehicle_class, vtypeattrs))
@@ -529,8 +531,9 @@ def main(options):
                     if options.binomial is None:
                         # generate with constant spacing
                         #line = file.readline()[:-1]
-                        attrs = ' type="car{}"'.format(idx)
-                        options.tripattrs = attrs
+                        if factors:
+                            attrs = ' type="car{}"'.format(idx)
+                            options.tripattrs = attrs
                         idx = generate_one(idx)
                         depart += options.period
                     else:
