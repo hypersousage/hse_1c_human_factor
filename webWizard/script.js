@@ -112,8 +112,8 @@ on("ready", function(){
                         education: parseString2Array(this.education.value),
                         sex: parseString2Array(this.sex.value),
                         alcohol: parseString2Array(this.alcohol.value),
-                        socdev: parseString2Array(this.socdev.value),
-                        foreigner: parseString2Array(this.foreigner.value)
+                        //socdev: parseString2Array(this.socdev.value),
+                        //foreigner: parseString2Array(this.foreigner.value)
                     };
                 }
             }
