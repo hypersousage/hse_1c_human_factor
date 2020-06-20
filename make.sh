@@ -2,7 +2,7 @@
 
 cp -f vtype_gen.py ../
 cp -f osmWebWizard.py ../
-cp -f -r webWizard ../
+cp -f -r webWizard/script.js ../webWizard/
 cp -f randomTrips.py ../
 
 cd ..
