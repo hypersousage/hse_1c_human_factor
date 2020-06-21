@@ -39,53 +39,54 @@ on("ready", function(){
             }
 
             if (iffactor) {
-                label = elem("<label>", {textContent: "Age", title: ""});
-                this.age = elem("<input>", {type: "text", value: "0"});
+                options = elem("<div>", {className: "options"});
+                label = elem("<label>", {textContent: "Age"});
+                this.age = elem("<input>", {type: "text", value: "0", size: 10});
                 label.append(this.age);
                 options.append(label);
 
-                label = elem("<label>", {textContent: "Stress", title: ""});
-                this.stress = elem("<input>", {type: "text", value: "0"});
+                label = elem("<label>", {textContent: "Stress"});
+                this.stress = elem("<input>", {type: "text", value: "0", size: 10});
                 label.append(this.stress);
                 options.append(label);
 
-                label = elem("<label>", {textContent: "Children", title: ""});
-                this.children = elem("<input>", {type: "text", value: "0"});
+                label = elem("<label>", {textContent: "Children"});
+                this.children = elem("<input>", {type: "text", value: "0", size: 10});
                 label.append(this.children);
                 options.append(label);
 
-                label = elem("<label>", {textContent: "Personality", title: ""});
-                this.personality = elem("<input>", {type: "text", value: "phlegmatic"});
+                label = elem("<label>", {textContent: "Personality"});
+                this.personality = elem("<input>", {type: "text", value: "phlegmatic", size: 10});
                 label.append(this.personality);
                 options.append(label);
 
-                label = elem("<label>", {textContent: "Phone", title: ""});
-                this.phone = elem("<input>", {type: "text", value: "0"});
+                label = elem("<label>", {textContent: "Phone"});
+                this.phone = elem("<input>", {type: "text", value: "0", size: 10});
                 label.append(this.phone);
                 options.append(label);
 
-                label = elem("<label>", {textContent: "Education", title: ""});
-                this.education = elem("<input>", {type: "text", value: "0"});
+                label = elem("<label>", {textContent: "Education"});
+                this.education = elem("<input>", {type: "text", value: "0", size: 10});
                 label.append(this.education);
                 options.append(label);
 
-                label = elem("<label>", {textContent: "Sex", title: ""});
-                this.sex = elem("<input>", {type: "text", value: "0"});
+                label = elem("<label>", {textContent: "Sex"});
+                this.sex = elem("<input>", {type: "text", value: "0", size: 10});
                 label.append(this.sex);
                 options.append(label);
 
-                label = elem("<label>", {textContent: "Alcohol", title: ""});
-                this.alcohol = elem("<input>", {type: "text", value: "0"});
+                label = elem("<label>", {textContent: "Alcohol"});
+                this.alcohol = elem("<input>", {type: "text", value: "0", size: 10});
                 label.append(this.alcohol);
                 options.append(label);
 
-                label = elem("<label>", {textContent: "Socdev", title: ""});
-                this.socdev = elem("<input>", {type: "text", value: "0"});
+                label = elem("<label>", {textContent: "Social Deviation"});
+                this.socdev = elem("<input>", {type: "text", value: "0", size: 10});
                 label.append(this.socdev);
                 options.append(label);
 
-                label = elem("<label>", {textContent: "Foreigner", title: ""});
-                this.foreigner = elem("<input>", {type: "text", value: "0"});
+                label = elem("<label>", {textContent: "Foreigner"});
+                this.foreigner = elem("<input>", {type: "text", value: "0", size: 10});
                 label.append(this.foreigner);
                 options.append(label);
             }
