@@ -13,6 +13,8 @@ from hse_1c_human_factor.factors.Phone import FactorPhone
 from hse_1c_human_factor.factors.Education import FactorEducation
 from hse_1c_human_factor.factors.Sex import FactorSex
 from hse_1c_human_factor.factors.Alcohol import FactorAlcohol
+from hse_1c_human_factor.factors.SocialDeviation import FactorSocialDeviation
+from hse_1c_human_factor.factors.Foreigner import FactorForeigner
 # ... other factor classes
 
 from hse_1c_human_factor.factors.constants import default_vals, coeffs, config
@@ -28,7 +30,9 @@ generators = {
     'phone': FactorPhone,
     'education': FactorEducation,
     'sex': FactorSex,
-    'alcohol': FactorAlcohol
+    'alcohol': FactorAlcohol,
+    'socdev': FactorSocialDeviation,
+    'foreigner': FactorForeigner
 }
 
 # Default SUMO values:
